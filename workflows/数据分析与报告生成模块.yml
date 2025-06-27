@@ -1,0 +1,353 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 数据分析与报告生成模块
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/siliconflow:0.0.15@775950e2071600bd3ba0415ec306c1b1582bc4a2a94688d642f627d112d87cd3
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 17506730266530-source-17506730357900-target
+      selected: false
+      source: '17506730266530'
+      sourceHandle: source
+      target: '17506730357900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 17506730357900-source-1750673139798-target
+      selected: false
+      source: '17506730357900'
+      sourceHandle: source
+      target: '1750673139798'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: document-extractor
+      id: 1750660008532-source-1750950226764-target
+      source: '1750660008532'
+      sourceHandle: source
+      target: '1750950226764'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: llm
+      id: 1750950226764-source-17506730266530-target
+      source: '1750950226764'
+      sourceHandle: source
+      target: '17506730266530'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: theme
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: theme
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: data
+          max_length: 5
+          options: []
+          required: true
+          type: file-list
+          variable: data
+        - label: author
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: author
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: equipment
+          max_length: 5
+          options: []
+          required: false
+          type: file
+          variable: equipment
+        - label: equipment
+          max_length: 256
+          options: []
+          required: false
+          type: text-input
+          variable: equipment
+        - label: description
+          max_length: 48
+          options: []
+          required: false
+          type: text-input
+          variable: description
+      height: 219
+      id: '1750660008532'
+      position:
+        x: 30
+        y: 309.5
+      positionAbsolute:
+        x: 30
+        y: 309.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1750662935132'
+        model:
+          completion_params: {}
+          mode: chat
+          name: Pro/deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 097b3ee8-72e4-4895-9098-0318e7b887bc
+          role: system
+          text: 你是一个专业的实验数据分析员
+        - id: e9515770-4e02-4740-8003-9c700153ffb2
+          role: user
+          text: '请根据{{#1750950226764.text#}}实验数据，{{#1750660008532.description#}}实验描述给出
+
+            实验结果（生成表格）
+
+            数据分析与结论
+
+            思考与拓展'
+        selected: false
+        title: 数据处理与分析
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '17506730266530'
+      position:
+        x: 637.8310622940448
+        y: 309.5
+      positionAbsolute:
+        x: 637.8310622940448
+        y: 309.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: Pro/deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: bada1f7c-1453-4bc8-b458-aed02d1dab3c
+          role: system
+          text: 你是一个专业的实验员
+        - id: 49bbd162-4540-43b5-af19-af25c662cbfe
+          role: user
+          text: '
+
+            {{#1750660008532.theme#}}是实验主题
+
+            {{#1750660008532.description#}}是对实验的描述
+
+            {{#1750950226764.text#}}是实验数据
+
+            {{#17506730266530.text#}}是对实验数据的分析
+
+
+            请输出完整的markdown代码，可以直接编译！！！请你注意一定可以编译。主题是{{#1750660008532.theme#}}。要求包含：
+
+            1. markdown代码
+
+            2. 包含标题{{#1750660008532.theme#}}、作者{{#1750660008532.author#}}
+
+            3. 包含至少3个章节
+
+            4. 使用中文支持
+
+            5.实验装置包括{{#1750660008532.equipment#}}
+
+            6.实验装置图为{{#1750660008532.equipment#}}（如果用户没有输入图片，这部分就不要出现）
+
+            7.仅给出实验报告的markdown代码，不要给出任何其他内容。
+
+            具体的章节为：
+
+            1.实验目的
+
+            2.实验仪器
+
+            3.实验原理（这部分请你根据主题上网搜索）
+
+            4.实验数据{{#17506730266530.text#}}
+
+            5.实验结果（包含{{#17506730266530.text#}}数据处理）
+
+            6.结论
+
+            请输出可直接编译的完整代码。请注意，我将使用dify的markdown将上述代码转换为pdf，请你保证所有公式都可以被正常编译（如下格式不能被编译请你不要使用这种格式$$\n   A
+            = \\frac{\\pi d^2}{4} = \\frac{\\pi \\times (0.500 \\times 10^{-3})^2}{4}
+            = 1.96 \\times 10^{-7} \\, \\text{m}^2\n   $$）。
+
+            '
+        selected: false
+        title: 实验总述
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '17506730357900'
+      position:
+        x: 951.8174360583146
+        y: 309.5
+      positionAbsolute:
+        x: 951.8174360583146
+        y: 309.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '17506730357900'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 89
+      id: '1750673139798'
+      position:
+        x: 1242
+        y: 309.5
+      positionAbsolute:
+        x: 1242
+        y: 309.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_array_file: false
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1750660008532'
+        - data
+      height: 91
+      id: '1750950226764'
+      position:
+        x: 333
+        y: 309.5
+      positionAbsolute:
+        x: 333
+        y: 309.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    viewport:
+      x: -30.391920164676876
+      y: 79.21258473509522
+      zoom: 0.6352045960307865

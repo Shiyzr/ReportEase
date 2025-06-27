@@ -1,0 +1,296 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 学科风格适配模块与学术语言风格调节模块
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/siliconflow:0.0.15@775950e2071600bd3ba0415ec306c1b1582bc4a2a94688d642f627d112d87cd3
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 17504951877740-source-1750495090053-target
+      source: '17504951877740'
+      sourceHandle: source
+      target: '1750495090053'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1750495090053-source-1750522969446-target
+      source: '1750495090053'
+      sourceHandle: source
+      target: '1750522969446'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1750494999832-source-17504951877740-target
+      source: '1750494999832'
+      sourceHandle: source
+      target: '17504951877740'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 报告草稿
+          max_length: 10000
+          options: []
+          required: true
+          type: paragraph
+          variable: draft
+        - label: 学科类型
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: subject
+        - label: 语言风格
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: style
+      height: 141
+      id: '1750494999832'
+      position:
+        x: 0.9639224408115297
+        y: 262
+      positionAbsolute:
+        x: 0.9639224408115297
+        y: 262
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: Pro/deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: b55429aa-d5a7-4964-ac40-35dd94f861cd
+          role: system
+          text: '你是一位精通学术语言表达和 LaTeX 写作规范的文本润色专家，擅长根据用户的语言风格需求对实验报告进行润色。
+
+            '
+        - id: 85b8e0ae-2251-40b3-ae14-537cfffcb518
+          role: user
+          text: '以下是由 AI 生成的实验报告 MarkDown 格式草稿：
+
+
+            {{#17504951877740.text#}}
+
+
+            请根据以下语言风格进行润色（不改变结构与格式）：
+
+            风格类型：{{#1750494999832.style#}}
+
+
+            请根据以下要求，对报告内容进行润色，并使用 Markdown 格式输出：
+
+            1. 保留原始文档结构与所有层级标题（如 #, ## 等）；
+
+            2. 调整文字表达，使其更符合目标语言风格，即{{#1750494999832.style#}}
+
+            3. 不得添加或删除章节标题；
+
+            4. 输出内容必须为纯 Markdown 源代码；
+
+            5. 禁止生成解释性内容、Markdown 之外的格式（如 LaTeX）、注释或额外文本。
+
+
+            请输出润色后的完整 Markdown 文档：
+
+            '
+        selected: true
+        structured_output_enabled: false
+        title: 学术语言风格LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1750495090053'
+      position:
+        x: 747.0818932837799
+        y: 262
+      positionAbsolute:
+        x: 747.0818932837799
+        y: 262
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: Pro/deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 206db571-647e-4fb5-875d-aaabf1178736
+          role: system
+          text: '你是一位精通不同学科术语与写作风格的智能助手，将根据给定实验报告草稿和指定学科，对文本进行语言风格与专业术语的调整，使之符合该学科领域的表达习惯与规范。
+
+            '
+        - id: 904600e7-f6a2-4749-92f5-935e10655e6e
+          role: user
+          text: '以下是一份实验报告草稿：
+
+
+            {{#1750494999832.draft#}}
+
+
+            学科类型为：{{#1750494999832.subject#}}
+
+
+            请根据该学科的专业风格对报告内容进行调整，并使用 Markdown 格式输出，要求如下：
+
+            1. 使用该学科常见术语，调整语言风格；
+
+            2. 保持整体报告结构，包括：实验目的、实验原理、实验步骤、实验结果、分析与结论；
+
+            3. 使用标准 Markdown 语法，如 # 一级标题、## 二级标题、无序/有序列表、代码块等；
+
+            4. 输出纯净的 Markdown 源代码，不需要额外解释或注释。
+
+
+            请输出处理后的完整 Markdown 文档：
+
+            '
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 1000
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties: {}
+            required: []
+            type: object
+        structured_output_enabled: false
+        title: 学科风格适配LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '17504951877740'
+      position:
+        x: 385
+        y: 262
+      positionAbsolute:
+        x: 385
+        y: 262
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1750495090053'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 89
+      id: '1750522969446'
+      position:
+        x: 1089.5842763708442
+        y: 262
+      positionAbsolute:
+        x: 1089.5842763708442
+        y: 262
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    viewport:
+      x: 130.33454731167205
+      y: 114.30297675391944
+      zoom: 0.718414592826734

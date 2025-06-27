@@ -1,0 +1,1571 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 实验报告生成器
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/siliconflow:0.0.15@775950e2071600bd3ba0415ec306c1b1582bc4a2a94688d642f627d112d87cd3
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: bowenliang123/md_exporter:1.8.0@aa15ca94651e608fa2defef440cc5bbd22884053168bd2d41d132d5d1b021129
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - remote_url
+      - local_file
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1750830638565'
+        sourceType: loop-start
+        targetType: llm
+      id: 1750830638565start-source-1750830733419-target
+      selected: false
+      source: 1750830638565start
+      sourceHandle: source
+      target: '1750830733419'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1750830638565'
+        sourceType: llm
+        targetType: if-else
+      id: 1750830733419--1750831094994-target
+      source: '1750830733419'
+      sourceHandle: source
+      target: '1750831094994'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1750830638565'
+        sourceType: if-else
+        targetType: loop-end
+      id: 1750831094994-true-1750831136159-target
+      source: '1750831094994'
+      sourceHandle: 'true'
+      target: '1750831136159'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1750830638565'
+        sourceType: if-else
+        targetType: llm
+      id: 1750831094994-5bb5c723-b998-4cc1-b759-23c4ffaa35a2-1750831156723-target
+      source: '1750831094994'
+      sourceHandle: 5bb5c723-b998-4cc1-b759-23c4ffaa35a2
+      target: '1750831156723'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1750830638565'
+        sourceType: llm
+        targetType: assigner
+      id: 1750831156723--1750831302984-target
+      source: '1750831156723'
+      sourceHandle: source
+      target: '1750831302984'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1750680925852-source-1750855220551-target
+      source: '1750680925852'
+      sourceHandle: source
+      target: '1750855220551'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1750855220551-source-1750855142049-target
+      source: '1750855220551'
+      sourceHandle: source
+      target: '1750855142049'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: end
+      id: 1750855142049-4305c794-459a-4082-8d84-7a7e3d5e5906-1750855465160-target
+      source: '1750855142049'
+      sourceHandle: 4305c794-459a-4082-8d84-7a7e3d5e5906
+      target: '1750855465160'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: end
+      id: 1750855142049-false-1750855465160-target
+      source: '1750855142049'
+      sourceHandle: 'false'
+      target: '1750855465160'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1750855142049-true-1750861407234-target
+      source: '1750855142049'
+      sourceHandle: 'true'
+      target: '1750861407234'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1750861407234-source-1750861412797-target
+      source: '1750861407234'
+      sourceHandle: source
+      target: '1750861412797'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: loop
+      id: 1750861412797-source-1750830638565-target
+      source: '1750861412797'
+      sourceHandle: source
+      target: '1750830638565'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: loop
+        targetType: if-else
+      id: 1750830638565-source-1750862453895-target
+      source: '1750830638565'
+      sourceHandle: source
+      target: '1750862453895'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1750862453895-true-1750862539257-target
+      source: '1750862453895'
+      sourceHandle: 'true'
+      target: '1750862539257'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1750862453895-afa44139-607c-46b1-9f56-60ba35137832-1750862574640-target
+      source: '1750862453895'
+      sourceHandle: afa44139-607c-46b1-9f56-60ba35137832
+      target: '1750862574640'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1750862453895-b759b949-24cf-4ce4-9fe2-27e6a07ff508-1750862602201-target
+      source: '1750862453895'
+      sourceHandle: b759b949-24cf-4ce4-9fe2-27e6a07ff508
+      target: '1750862602201'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: end
+      id: 1750862574640-source-1750862617453-target
+      source: '1750862574640'
+      sourceHandle: source
+      target: '1750862617453'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: end
+      id: 1750862602201-source-1750862622415-target
+      source: '1750862602201'
+      sourceHandle: source
+      target: '1750862622415'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: end
+      id: 1750862539257-source-1750823083481-target
+      source: '1750862539257'
+      sourceHandle: source
+      target: '1750823083481'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1750862453895-322c5029-02c6-4785-9eb5-edd28c35c206-1750953093271-target
+      source: '1750862453895'
+      sourceHandle: 322c5029-02c6-4785-9eb5-edd28c35c206
+      target: '1750953093271'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1750953093271-source-1750953099244-target
+      source: '1750953093271'
+      sourceHandle: source
+      target: '1750953099244'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 实验数据
+          max_length: 5
+          options: []
+          required: true
+          type: file-list
+          variable: raw_data
+        - label: 实验名称
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: name
+        - label: 实验者名称
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: researcher
+        - label: 实验类型
+          max_length: 48
+          options:
+          - 物理类
+          - 生物类
+          - 化学类
+          - 信息科学类
+          required: true
+          type: select
+          variable: type
+        - label: 实验设备
+          max_length: 48
+          options: []
+          required: false
+          type: text-input
+          variable: experiment
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 实验设备
+          max_length: 48
+          options: []
+          required: false
+          type: file
+          variable: experiment
+        - label: 风格
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: style
+        - label: output_format
+          max_length: 48
+          options:
+          - PDF
+          - WORD
+          - MarkDown
+          - LaTeX
+          required: true
+          type: select
+          variable: output_format
+        - label: 实验描述
+          max_length: 48
+          options: []
+          required: false
+          type: text-input
+          variable: description
+      height: 297
+      id: '1750680925852'
+      position:
+        x: 84.36912852146537
+        y: 282
+      positionAbsolute:
+        x: 84.36912852146537
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1750862539257'
+          - files
+          variable: files
+        selected: false
+        title: 结束
+        type: end
+      height: 89
+      id: '1750823083481'
+      position:
+        x: 3854.9464239226886
+        y: 188.9762108604197
+      positionAbsolute:
+        x: 3854.9464239226886
+        y: 188.9762108604197
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        break_conditions: []
+        desc: ''
+        error_handle_mode: terminated
+        height: 286
+        logical_operator: and
+        loop_count: 10
+        loop_variables:
+        - id: e596e304-73e3-4189-9f71-b854c5d4a0c6
+          label: verse
+          value:
+          - '1750861412797'
+          - text
+          value_type: variable
+          var_type: string
+        selected: false
+        start_node_id: 1750830638565start
+        title: 循环
+        type: loop
+        width: 1295.9999999999998
+      height: 286
+      id: '1750830638565'
+      position:
+        x: 1743.3868797127689
+        y: 317.3637138337719
+      positionAbsolute:
+        x: 1743.3868797127689
+        y: 317.3637138337719
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 1296
+      zIndex: 1
+    - data:
+        desc: ''
+        isInLoop: true
+        selected: false
+        title: ''
+        type: loop-start
+      draggable: false
+      height: 48
+      id: 1750830638565start
+      parentId: '1750830638565'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 1767.3868797127689
+        y: 385.3637138337719
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-loop-start
+      width: 44
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1750830638565'
+        model:
+          completion_params: {}
+          mode: chat
+          name: Pro/deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 731de4bb-3a40-4e08-9601-c1908a08d082
+          role: system
+          text: 你可以检查文件是否符合特定的格式，如果符合输出1，不符合输出0
+        - id: 8ff8db9f-d9f4-4ead-bd5b-c8f6498cba1f
+          role: user
+          text: '请检查{{#1750830638565.verse#}}是否符合以下条件：
+
+            1. 格式为可直接编译的markdown代码
+
+            2. 包含标题{{#1750680925852.name#}}、作者{{#1750680925852.researcher#}}
+
+            3. 仅包含实验报告的markdown代码，不要给出任何其他内容。
+
+            4. 具体的章节为：
+
+            实验目的
+
+            实验仪器
+
+            实验原理（这部分请你根据主题上网搜索）
+
+            实验数据
+
+            实验结果（包含数据处理）
+
+            结论
+
+            5. 内容不与{{#1750680925852.description#}}相悖
+
+
+            注意，你只需要输出一个数字，如果{{#1750830638565.verse#}}符合以上条件，输出1，否则输出0'
+        selected: false
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1750830733419'
+      parentId: '1750830638565'
+      position:
+        x: 128
+        y: 68
+      positionAbsolute:
+        x: 1871.3868797127689
+        y: 385.3637138337719
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 07a4a4c8-0904-40c7-805a-5085ab7b77fb
+            value: '1'
+            varType: string
+            variable_selector:
+            - '1750830733419'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: 5bb5c723-b998-4cc1-b759-23c4ffaa35a2
+          conditions:
+          - comparison_operator: contains
+            id: c3e369a5-7285-4f47-9e2d-41a612117cd6
+            value: '0'
+            varType: string
+            variable_selector:
+            - '1750830733419'
+            - text
+          id: 5bb5c723-b998-4cc1-b759-23c4ffaa35a2
+          logical_operator: and
+        desc: ''
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1750830638565'
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 173
+      id: '1750831094994'
+      parentId: '1750830638565'
+      position:
+        x: 431
+        y: 68
+      positionAbsolute:
+        x: 2174.386879712769
+        y: 385.3637138337719
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1750830638565'
+        selected: false
+        title: 退出循环
+        type: loop-end
+      height: 53
+      id: '1750831136159'
+      parentId: '1750830638565'
+      position:
+        x: 734
+        y: 68
+      positionAbsolute:
+        x: 2477.386879712769
+        y: 385.3637138337719
+      sourcePosition: right
+      targetPosition: left
+      type: custom-simple
+      width: 243
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1750830638565'
+        model:
+          completion_params: {}
+          mode: chat
+          name: Pro/deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 350b7ebe-8300-4d2b-b710-22ab002c9dad
+          role: system
+          text: 你可以将文档修改成特定格式
+        - id: 5286516d-4168-4a4f-a87a-e8bca3b73d4a
+          role: user
+          text: '请你修改{{#1750830638565.verse#}}使得其符合以下条件：
+
+            1. 格式为可直接编译的markdown代码
+
+            2. 包含标题{{#1750680925852.name#}}、作者{{#1750680925852.researcher#}}
+
+            3. 仅包含实验报告的markdown代码，不要给出任何其他内容。
+
+            4. 具体的章节为：
+
+            实验目的
+
+            实验仪器
+
+            实验原理（这部分请你根据主题上网搜索）
+
+            实验数据
+
+            实验结果（包含数据处理）
+
+            结论
+
+            5. 内容不与{{#1750680925852.description#}}相悖'
+        selected: false
+        title: LLM 3
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1750831156723'
+      parentId: '1750830638565'
+      position:
+        x: 733.9999999999998
+        y: 158.4054341563699
+      positionAbsolute:
+        x: 2477.386879712769
+        y: 475.7691479901418
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1750831156723'
+          - text
+          variable_selector:
+          - '1750830638565'
+          - verse
+          write_mode: over-write
+        loop_id: '1750830638565'
+        selected: false
+        title: 变量赋值
+        type: assigner
+        version: '2'
+      height: 87
+      id: '1750831302984'
+      parentId: '1750830638565'
+      position:
+        x: 1036.9999999999998
+        y: 156.81086831273979
+      positionAbsolute:
+        x: 2780.386879712769
+        y: 474.1745821465117
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 9eae06c9-ff21-4b20-a22c-35ce438bd118
+            value: '1'
+            varType: string
+            variable_selector:
+            - '1750855220551'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: 4305c794-459a-4082-8d84-7a7e3d5e5906
+          conditions:
+          - comparison_operator: contains
+            id: 6a2866db-5357-4cf4-bbbd-c97050ce5c2e
+            value: '0'
+            varType: string
+            variable_selector:
+            - '1750855220551'
+            - text
+          id: 4305c794-459a-4082-8d84-7a7e3d5e5906
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 2
+        type: if-else
+      height: 173
+      id: '1750855142049'
+      position:
+        x: 688.3691285214654
+        y: 282
+      positionAbsolute:
+        x: 688.3691285214654
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        default_value:
+        - key: text
+          type: string
+          value: '0'
+        desc: ''
+        error_strategy: default-value
+        model:
+          completion_params: {}
+          mode: chat
+          name: Pro/deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: e9309004-21cd-4cdf-8f61-2cde6ac710f1
+          role: system
+          text: 你负责确定上述信息中是否存在问题
+        - id: d1795ab8-28a9-436b-a4d2-9e7d4d6c875c
+          role: user
+          text: '{{#1750680925852.raw_data#}}应当为一个文件，其内容应当与某一个实验有关
+
+            {{#1750680925852.name#}}应当是一个实验的名字
+
+            {{#1750680925852.researcher#}}应当是一个名字
+
+            {{#1750680925852.experiment#}}应当是一些实验器材
+
+
+            如果上述的内容都满足对应的要求，且内容中无不当言论，请你仅输出1，反之仅输出0'
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 1000
+        selected: false
+        structured_output_enabled: false
+        title: LLM 3
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 125
+      id: '1750855220551'
+      position:
+        x: 388.36912852146537
+        y: 282
+      positionAbsolute:
+        x: 388.36912852146537
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        outputs:
+        - value_selector: []
+          variable: ''
+        selected: false
+        title: 结束 2
+        type: end
+      height: 53
+      id: '1750855465160'
+      position:
+        x: 976.9255289862062
+        y: 441.28245313107516
+      positionAbsolute:
+        x: 976.9255289862062
+        y: 441.28245313107516
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          label:
+            en_US: theme
+            ja_JP: theme
+            pt_BR: theme
+            zh_Hans: theme
+          llm_description: ''
+          max: null
+          min: null
+          name: theme
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          label:
+            en_US: data
+            ja_JP: data
+            pt_BR: data
+            zh_Hans: data
+          llm_description: ''
+          max: null
+          min: null
+          name: data
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: files
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          label:
+            en_US: author
+            ja_JP: author
+            pt_BR: author
+            zh_Hans: author
+          llm_description: ''
+          max: null
+          min: null
+          name: author
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          label:
+            en_US: equipment
+            ja_JP: equipment
+            pt_BR: equipment
+            zh_Hans: equipment
+          llm_description: ''
+          max: null
+          min: null
+          name: equipment
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: file
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          label:
+            en_US: equipment
+            ja_JP: equipment
+            pt_BR: equipment
+            zh_Hans: equipment
+          llm_description: ''
+          max: null
+          min: null
+          name: equipment
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: file
+        params:
+          author: ''
+          data: ''
+          equipment: ''
+          theme: ''
+        provider_id: 8f395485-819b-4c31-8db2-6086de1d9cb3
+        provider_name: 实验报告
+        provider_type: workflow
+        selected: false
+        title: 数据分析与报告生成模块
+        tool_configurations: {}
+        tool_description: ''
+        tool_label: 实验报告
+        tool_name: report_generator
+        tool_parameters:
+          author:
+            type: mixed
+            value: '{{#1750680925852.researcher#}}'
+          data:
+            type: variable
+            value:
+            - '1750680925852'
+            - raw_data
+          description:
+            type: mixed
+            value: '{{#1750680925852.description#}}'
+          theme:
+            type: mixed
+            value: '{{#1750680925852.name#}}'
+        type: tool
+      height: 53
+      id: '1750861407234'
+      position:
+        x: 1115.85237844882
+        y: 154.71616215033504
+      positionAbsolute:
+        x: 1115.85237844882
+        y: 154.71616215033504
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          label:
+            en_US: 报告草稿
+            ja_JP: 报告草稿
+            pt_BR: 报告草稿
+            zh_Hans: 报告草稿
+          llm_description: ''
+          max: null
+          min: null
+          name: draft
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          label:
+            en_US: 学科类型
+            ja_JP: 学科类型
+            pt_BR: 学科类型
+            zh_Hans: 学科类型
+          llm_description: ''
+          max: null
+          min: null
+          name: subject
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          label:
+            en_US: 语言风格
+            ja_JP: 语言风格
+            pt_BR: 语言风格
+            zh_Hans: 语言风格
+          llm_description: ''
+          max: null
+          min: null
+          name: style
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          draft: ''
+          style: ''
+          subject: ''
+        provider_id: fe7379fc-819a-46e8-9b2b-2f811f8645a7
+        provider_name: 学科风格适配模块&学术语言风格调节模块
+        provider_type: workflow
+        selected: false
+        title: 学科风格适配模块&学术语言风格调节模块
+        tool_configurations: {}
+        tool_description: ''
+        tool_label: 学科风格适配模块&学术语言风格调节模块
+        tool_name: part3_part4
+        tool_parameters:
+          draft:
+            type: mixed
+            value: '{{#1750861407234.text#}}'
+          style:
+            type: mixed
+            value: '{{#1750680925852.style#}}'
+          subject:
+            type: mixed
+            value: '{{#1750680925852.type#}}'
+        type: tool
+      height: 53
+      id: '1750861412797'
+      position:
+        x: 1407.865207393124
+        y: 260.229638042156
+      positionAbsolute:
+        x: 1407.865207393124
+        y: 260.229638042156
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 6cc89710-2456-469a-94b9-5a674dbef279
+            value: PDF
+            varType: string
+            variable_selector:
+            - '1750680925852'
+            - output_format
+          id: 'true'
+          logical_operator: and
+        - case_id: afa44139-607c-46b1-9f56-60ba35137832
+          conditions:
+          - comparison_operator: contains
+            id: 4651aebb-a86e-485f-9ddb-7245b22cedfd
+            value: WORD
+            varType: string
+            variable_selector:
+            - '1750680925852'
+            - output_format
+          logical_operator: and
+        - case_id: b759b949-24cf-4ce4-9fe2-27e6a07ff508
+          conditions:
+          - comparison_operator: contains
+            id: c6a999fd-1465-41d8-8595-ca4a97011252
+            value: MarkDown
+            varType: string
+            variable_selector:
+            - '1750680925852'
+            - output_format
+          logical_operator: and
+        - case_id: 322c5029-02c6-4785-9eb5-edd28c35c206
+          conditions:
+          - comparison_operator: contains
+            id: 987b5ca5-2bca-47af-8adf-e35e33728fe2
+            value: LaTeX
+            varType: string
+            variable_selector:
+            - '1750680925852'
+            - output_format
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 3
+        type: if-else
+      height: 269
+      id: '1750862453895'
+      position:
+        x: 3161.183490059834
+        y: 227.92191111715945
+      positionAbsolute:
+        x: 3161.183490059834
+        y: 227.92191111715945
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Markdown text
+            ja_JP: Markdown text
+            pt_BR: Markdown text
+            zh_Hans: Markdown格式文本
+          label:
+            en_US: Markdown text
+            ja_JP: Markdown text
+            pt_BR: Markdown text
+            zh_Hans: Markdown格式文本
+          llm_description: ''
+          max: null
+          min: null
+          name: md_text
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Filename of the output file
+            ja_JP: Filename of the output file
+            pt_BR: Filename of the output file
+            zh_Hans: 输出文件名
+          label:
+            en_US: Filename of the output file
+            ja_JP: Filename of the output file
+            pt_BR: Filename of the output file
+            zh_Hans: 输出文件名
+          llm_description: ''
+          max: null
+          min: null
+          name: output_filename
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          md_text: ''
+          output_filename: ''
+        provider_id: bowenliang123/md_exporter/md_exporter
+        provider_name: bowenliang123/md_exporter/md_exporter
+        provider_type: builtin
+        selected: false
+        title: Markdown 转 PDF 文件
+        tool_configurations: {}
+        tool_description: 将 Markdown 转换为 PDF 文件的工具
+        tool_label: Markdown 转 PDF 文件
+        tool_name: md_to_pdf
+        tool_parameters:
+          md_text:
+            type: mixed
+            value: '{{#1750830638565.verse#}}'
+          output_filename:
+            type: mixed
+            value: '{{#1750680925852.name#}}'
+        type: tool
+      height: 53
+      id: '1750862539257'
+      position:
+        x: 3487.934632453746
+        y: 136.8758652738298
+      positionAbsolute:
+        x: 3487.934632453746
+        y: 136.8758652738298
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Markdown text
+            ja_JP: Markdown text
+            pt_BR: Markdown text
+            zh_Hans: Markdown格式文本
+          label:
+            en_US: Markdown text
+            ja_JP: Markdown text
+            pt_BR: Markdown text
+            zh_Hans: Markdown格式文本
+          llm_description: ''
+          max: null
+          min: null
+          name: md_text
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Filename of the output file
+            ja_JP: Filename of the output file
+            pt_BR: Filename of the output file
+            zh_Hans: 输出文件名
+          label:
+            en_US: Filename of the output file
+            ja_JP: Filename of the output file
+            pt_BR: Filename of the output file
+            zh_Hans: 输出文件名
+          llm_description: ''
+          max: null
+          min: null
+          name: output_filename
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          md_text: ''
+          output_filename: ''
+        provider_id: bowenliang123/md_exporter/md_exporter
+        provider_name: bowenliang123/md_exporter/md_exporter
+        provider_type: builtin
+        selected: false
+        title: Markdown 转 DOCX 文件
+        tool_configurations: {}
+        tool_description: 将 Markdown 转换为 DOCX 文件的工具
+        tool_label: Markdown 转 DOCX 文件
+        tool_name: md_to_docx
+        tool_parameters:
+          md_text:
+            type: mixed
+            value: '{{#1750830638565.verse#}}'
+          output_filename:
+            type: mixed
+            value: '{{#1750680925852.name#}}'
+        type: tool
+      height: 53
+      id: '1750862574640'
+      position:
+        x: 3477.921337757628
+        y: 341.988200827605
+      positionAbsolute:
+        x: 3477.921337757628
+        y: 341.988200827605
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Markdown text
+            ja_JP: Markdown text
+            pt_BR: Markdown text
+            zh_Hans: Markdown格式文本
+          label:
+            en_US: Markdown text
+            ja_JP: Markdown text
+            pt_BR: Markdown text
+            zh_Hans: Markdown格式文本
+          llm_description: ''
+          max: null
+          min: null
+          name: md_text
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Filename of the output file
+            ja_JP: Filename of the output file
+            pt_BR: Filename of the output file
+            zh_Hans: 输出文件名
+          label:
+            en_US: Filename of the output file
+            ja_JP: Filename of the output file
+            pt_BR: Filename of the output file
+            zh_Hans: 输出文件名
+          llm_description: ''
+          max: null
+          min: null
+          name: output_filename
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          md_text: ''
+          output_filename: ''
+        provider_id: bowenliang123/md_exporter/md_exporter
+        provider_name: bowenliang123/md_exporter/md_exporter
+        provider_type: builtin
+        selected: false
+        title: Markdown 转 md 文件
+        tool_configurations: {}
+        tool_description: 将 Markdown 转换为 .md 文件的工具
+        tool_label: Markdown 转 md 文件
+        tool_name: md_to_md
+        tool_parameters:
+          md_text:
+            type: mixed
+            value: '{{#1750830638565.verse#}}'
+          output_filename:
+            type: mixed
+            value: '{{#1750680925852.name#}}'
+        type: tool
+      height: 53
+      id: '1750862602201'
+      position:
+        x: 3506.647058608299
+        y: 456.89108423029023
+      positionAbsolute:
+        x: 3506.647058608299
+        y: 456.89108423029023
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1750862574640'
+          - files
+          variable: files
+        selected: false
+        title: 结束 3
+        type: end
+      height: 89
+      id: '1750862617453'
+      position:
+        x: 3854.9464239226886
+        y: 407.8179777770601
+      positionAbsolute:
+        x: 3854.9464239226886
+        y: 407.8179777770601
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1750862602201'
+          - files
+          variable: files
+        selected: false
+        title: 结束 4
+        type: end
+      height: 89
+      id: '1750862622415'
+      position:
+        x: 3836.9928483910194
+        y: 503.5703806126311
+      positionAbsolute:
+        x: 3836.9928483910194
+        y: 503.5703806126311
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: Pro/deepseek-ai/DeepSeek-V3
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 6b6a230f-1925-497e-85c4-1912ac31a245
+          role: system
+          text: 请你将{{#1750830638565.verse#}}转化为LaTeX代码格式，注意，请务必以代码形式输出，并且不要输出除了LaTeX代码以外不要输出任何其他内容。
+        selected: false
+        title: MarkDown转LaTeX
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1750953093271'
+      position:
+        x: 3507.138569470324
+        y: 601.0800589176814
+      positionAbsolute:
+        x: 3507.138569470324
+        y: 601.0800589176814
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1750953093271'
+          - text
+          variable: text
+        selected: false
+        title: 结束 5
+        type: end
+      height: 89
+      id: '1750953099244'
+      position:
+        x: 3820.8918987379757
+        y: 638.9729730804413
+      positionAbsolute:
+        x: 3820.8918987379757
+        y: 638.9729730804413
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    viewport:
+      x: -1770.578000869237
+      y: 39.49356069652441
+      zoom: 0.6921447640157768
