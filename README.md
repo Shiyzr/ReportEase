@@ -1,4 +1,4 @@
-# ReportEase：多模块智能实验报告写作系统
+![USAGE](https://github.com/user-attachments/assets/7d6c3bcd-2054-4b7e-abba-8193390a276c)# ReportEase：多模块智能实验报告写作系统
 
 本项目为人工智能基础课程的大作业，基于低代码平台 Dify 开发，实现了从实验数据处理到学术报告撰写的一站式自动化流程。
 
@@ -126,4 +126,6 @@
 ---
 
 ## 🚀 使用方式
+
+![使用方法](./images/usage.png)
 
