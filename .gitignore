@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+env/
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated
+*.pdf
+*.docx
+*.tex
+
+# Environment
+.env
+
+# Pandoc 中间文件
+*.log
+*.aux
+*.out
+*.toc
+*.synctex.gz
+*.tex
+
+# Markdown 导出目录（可自定义）
+pdf-output/
+build/
+*.tmp.md
